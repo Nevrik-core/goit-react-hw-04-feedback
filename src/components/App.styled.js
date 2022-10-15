@@ -12,7 +12,3 @@ export const Container = styled.div`
     box-shadow: ${props => props.theme.filters.shadow};
 `;
 
-export const Header = styled.h1`
-text-align: center;
-text-transform: uppercase;
-`;

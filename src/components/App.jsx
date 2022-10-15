@@ -3,7 +3,8 @@ import React from "react";
 import { Statistics } from "./Statistics/Statistics";
 import { FeedbackOptions } from "./FeedbackOptions/FeedbackOptions";
 import { Notification } from "./Notification/Notification";
-import { Container, Header } from "./App.styled";
+import { Container } from "./App.styled";
+import { Section } from './Section/Section';
 
 export class App extends React.Component {
 
@@ -35,11 +36,15 @@ export class App extends React.Component {
     return (
     <div>
         <Container>
-        <Header>Please leave feedback</Header>
-        <FeedbackOptions
-          options={Object.keys(this.state)}
-          onLeaveFeedback={this.onLeaveFeedback} />
-        {this.countTotalFeedback()
+          <Section title="Please leave feedback">
+             <FeedbackOptions
+              options={Object.keys(this.state)}
+              onLeaveFeedback={this.onLeaveFeedback}
+            />
+          </Section>
+          
+          <Section>
+              {this.countTotalFeedback()
         ? <Statistics
           good={good}
           neutral={neutral}
@@ -49,6 +54,8 @@ export class App extends React.Component {
         : <Notification message="There is no feedback"></Notification> 
         }
         
+       </Section>
+      
           </Container>
     </div>
   );
